@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Удаленние игры{% endblock title %}
+
+{% block content %}
+    <div class="features">
+        <h1>Удаление игры</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Удалить игру</button>
+        </form>
+    </div>
+{% endblock content%}
