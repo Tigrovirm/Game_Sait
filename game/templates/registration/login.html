@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% block title %}Авторизация{% endblock title%}
+
+{% block content %}
+    <div class="features">
+        <form method="post" action="{% url 'game:login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button name="submit">Login</button>
+        </form>
+    </div>
+
+{% endblock content %}

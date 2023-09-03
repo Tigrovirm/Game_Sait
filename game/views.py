@@ -1,12 +1,24 @@
 from django.shortcuts import render, redirect
 from .models import Articl
 from .forms import ArticlForm
+from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 
 
 def game_home(request):
     game = Articl.objects.order_by('-date')
     return render(request, 'game/game_home.html', {'game': game})
+
+def register(request):
+    if request.method != 'POST':
+        form = UserCreationForm()
+    else:
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main:home')
+    context = {"form": form}
+    return render(request, 'registration/register.html', context=context)
 
 class GameDetailView(DetailView):
     model = Articl
@@ -29,10 +41,11 @@ class GameDeleteView(DeleteView):
 def create_game(request):
     error = ''
     if request.method == 'POST':
-        form = ArticlForm(request.POST)
+        form = ArticlForm(request.POST, request.FILES)
+        print(request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('main:home')
         else:
             error = 'Форма была неверной'
 

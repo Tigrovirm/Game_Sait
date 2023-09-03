@@ -9,7 +9,8 @@
             {% for el in game %}
                 <div class="alert alert-warning">
                     <h3>{{ el.title }}</h3>
-                    <a href="{% url 'game-detail' el.id %}" class="btn btn-warning" id="gameMore">Больше</a>
+                    
+                    <a href="{% url 'game:game-detail' el.id %}" class="btn btn-warning" id="gameMore">Больше</a>
                 </div>
                 
             {% endfor %}
