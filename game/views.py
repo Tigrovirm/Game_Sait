@@ -9,6 +9,9 @@ def game_home(request):
     game = Articl.objects.order_by('-date')
     return render(request, 'game/game_home.html', {'game': game})
 
+def staff(request):
+    return render(request, 'registration/staff.html')
+
 def register(request):
     if request.method != 'POST':
         form = UserCreationForm()

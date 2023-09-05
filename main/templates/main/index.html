@@ -6,6 +6,6 @@
     <div class="features">
         <h1>{{ title }}</h1>
         <p>На нашем сайте представленна простая информация по играм, надеемся вам понравится ;)</p>
-        <button class="btn btn-warning">На страницу про нас</button>
+        <a href="{% url 'main:about' %}" class="btn btn-info">О нас</a>
     </div>
 {% endblock content%}

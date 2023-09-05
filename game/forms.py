@@ -4,16 +4,12 @@ from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, FileInpu
 class ArticlForm(ModelForm):
     class Meta:
         model = Articl
-        fields = ['title', 'anons', 'full_text', 'date', 'image']
+        fields = ['title', 'full_text', 'date', 'image']
 
         widgets = {
             "title": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Название Игры'
-            }),
-            "anons": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Анонс Игры'
             }),
             "date": DateTimeInput(attrs={
                 'class': 'form-control',

@@ -8,7 +8,6 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.title }}<br>
-            {{ form.anons }}<br>
             {{ form.full_text }}<br>
             {{ form.image }}<br>
             {{ form.date }}<br>

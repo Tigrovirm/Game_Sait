@@ -7,10 +7,8 @@
         <h1>Игры</h1>
         {% if game %}
             {% for el in game %}
-                <div class="alert alert-warning">
-                    <h3>{{ el.title }}</h3>
-                    
-                    <a href="{% url 'game:game-detail' el.id %}" class="btn btn-warning" id="gameMore">Больше</a>
+                <div class="alert alert-warning" style="background-image: url('{{ el.image.url }}'); background-size: cover;" >
+                    <a href="{% url 'game:game-detail' el.id %}" class="game-link" id="gameMore"><h4>{{ el.title }}</h4></a>
                 </div>
                 
             {% endfor %}
