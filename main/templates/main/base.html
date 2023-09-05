@@ -20,13 +20,17 @@
             <a href="{% url 'game:game_home' %}"><li><i class="fa-solid fa-gamepad"></i> Игры</li></a>
             {% if user.is_authenticated %}
                 <a href="{% url 'game:create_game' %}"><li><button class="btn btn-info"><i class="fa-solid fa-circle-plus"> Добавить Игру</i></button></li></a>
-                Пользователь {{ user.username }} авторезирован
             {% else %}
                 
             {% endif %}
         </ul>
     </aside>
     <main>
+        {% if user.is_authenticated %}
+            <p class="check">Пользователь {{ user.username }} авторезирован</p>
+        {% else %}
+
+        {% endif %}
         <a href="{% url 'game:staff' %}"><img src="{% static 'main/img/builder.png' %}" alt="Работник" class="staff"></a>
         {% block content %}
         {% endblock content%}
